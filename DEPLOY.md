@@ -61,4 +61,4 @@
 
 本地运行 `npm test`、`npm run typecheck`。查看云函数 `api metrics` 日志统计耗时、响应体大小及事务尝试/读写；P95、总调用/数据库写入和跨设备延迟需实际采样。高峰重试测试要在隔离测试环境进行。
 
-本轮未启用租约拆集合、outbox 或定时推进任务；详细完成范围与上游 SDK 依赖审计情况见 `REPAIR-STATUS.md`。不要用 `npm audit fix --force` 的 SDK 降级建议直接覆盖当前事务实现。
+此前版本未启用租约拆集合、outbox 或定时推进任务；当前定时推进任务配置见 [对局订阅部署说明](docs/realtime-sync.md)。不要用 `npm audit fix --force` 的 SDK 降级建议直接覆盖当前事务实现。
