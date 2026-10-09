@@ -1,0 +1,1 @@
+<view wx:if="{{enabled}}" class="test-switch"><view class="test-switch-label">开发测试 · {{label}}</view><picker range="{{options}}" value="{{selected}}" disabled="{{busy || disabled}}" bindchange="change"><button class="test-switch-button" disabled="{{busy || disabled}}">{{busy ? '切换中…' : '切换用户'}}</button></picker></view>

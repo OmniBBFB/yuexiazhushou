@@ -1,0 +1,23 @@
+page { height: 100%; overflow: hidden; }
+.relations-page { height: 100vh; box-sizing: border-box; display: flex; flex-direction: column; padding: 12rpx 24rpx calc(12rpx + env(safe-area-inset-bottom)); background: #f5f4fa; color: #302a40; }
+.toolbar { display: flex; align-items: center; justify-content: space-between; }
+.heading { font-size: 30rpx; font-weight: 600; }
+.toolbar button { margin: 0 0 0 auto; width: 104rpx; height: 52rpx; padding: 0; line-height: 52rpx; font-size: 24rpx; color: #6658d8; background: #fff; }
+.status,.hint { flex-shrink: 0; color: #8d889e; text-align: center; font-size: 20rpx; padding: 6rpx 0; }
+.hint { padding: 12rpx 0; color: #625b70; }
+.board { position: relative; flex-shrink: 0; width: 100%; height: 310px; max-height: 43vh; background: #fff; border-radius: 28rpx; overflow: hidden; }
+.lines { position: absolute; width: 100%; height: 100%; top: 0; left: 0; }
+.seat { position: absolute; width: 40px; height: 40px; margin: -20px 0 0 -20px; box-sizing: border-box; border: 2px solid #e1ddeb; border-radius: 50%; background: #f9f8fd; color: #62577b; font-size: 16px; line-height: 36px; text-align: center; font-weight: 600; }
+.seat.dead { color: #a9a6ad; background: #ededf0; border-color: #dedde1; }
+.seat.focused { border-color: #9182db; }.seat.source { background: #eee8ff; border-color: #6658d8; }
+.tools,.history-tools { display: flex; gap: 12rpx; margin-top: 14rpx; flex-shrink: 0; }
+.tools button,.history-tools button { flex: 1; margin: 0; padding: 0; height: 58rpx; line-height: 58rpx; border-radius: 16rpx; background: #fff; font-size: 24rpx; color: #756c87; }
+.tools button.active { box-shadow: inset 0 0 0 2rpx #8c7ccd; background: #ede8fb; }
+.tools button.attack,.attack { color: #c44c60; }.tools button.support,.support { color: #278c62; }
+.history-tools button { height: 44rpx; line-height: 44rpx; background: transparent; font-size: 21rpx; }
+.history-tools button::after { border: 0; }.history-tools button[disabled] { color: #c3becb; }
+.list-title { font-size: 23rpx; padding: 20rpx 4rpx 12rpx; flex-shrink: 0; }
+.list-title text { margin-left: 12rpx; color: #9992a5; font-size: 18rpx; }
+.edge-list { flex: 1; height: 0; min-height: 0; }
+.edge { display: flex; justify-content: space-between; padding: 20rpx; background: #fff; border-radius: 16rpx; margin-bottom: 10rpx; font-size: 26rpx; }.edge text { color: #aaa2b4; font-size: 21rpx; }
+.empty { text-align: center; padding: 24rpx; color: #aaa2b4; font-size: 23rpx; }

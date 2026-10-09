@@ -1,0 +1,7 @@
+<test-user-switch disabled="{{switchingUser || exitingRoom}}"/>
+<view class="page home safe-bottom">
+  <view class="topbar between" bindtap="goProfile"><view class="brand"><text class="moon">◐</text><text>夜幕</text></view><view class="profile row"><text>{{profile.nickname}}</text><view class="avatar">{{avatarText}}</view></view></view>
+  <view class="home-hero"><view class="hero-moon">◐</view><view class="title">今晚，一起开局</view><view class="subtitle">面对面玩狼人杀，把主持交给夜幕。</view><view class="home-features"><view>私密身份</view><view>公共播报</view><view>个人笔记</view></view></view>
+  <view wx:if="{{hasRoom}}" class="resume card"><button class="resume-main" disabled="{{switchingUser || exitingRoom}}" bindtap="resume"><view class="resume-info"><view class="resume-label">继续上次房间</view><view class="resume-code"># {{roomCode}}</view></view><view class="arrow">→</view></button><button class="exit-room" disabled="{{switchingUser || exitingRoom}}" bindtap="exitRoom">{{exitingRoom ? '处理中' : '退出'}}</button></view>
+  <view class="actions"><button class="primary" disabled="{{switchingUser}}" bindtap="goCreate">创建房间</button><button class="secondary" disabled="{{switchingUser}}" bindtap="goJoin">加入房间</button></view>
+</view>

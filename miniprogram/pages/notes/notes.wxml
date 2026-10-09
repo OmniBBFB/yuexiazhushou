@@ -1,0 +1,21 @@
+<view class="notebook">
+  <test-user-switch/>
+  <view class="notebook-toolbar">
+    <view class="toolbar-side"><button class="notebook-back" bindtap="back" aria-label="返回对局">‹</button></view>
+    <view class="notebook-heading"><view class="notebook-title">笔记</view></view>
+    <view class="toolbar-side toolbar-side-right"><button class="graph-entry" bindtap="openGraph">关系图</button><button class="save-notes" bindtap="retry">保存</button></view>
+  </view>
+  <view class="save-state" aria-live="polite">{{saveStatus}}</view>
+  <scroll-view scroll-y class="notebook-list">
+    <view wx:if="{{loading}}" class="notebook-empty">正在打开你的笔记…</view>
+    <view wx:for="{{rows}}" wx:key="seat" class="notebook-row">
+      <text class="notebook-seat">{{item.seat}}</text>
+      <view class="guess-entry {{item.roleGuess === '未知' ? 'empty' : item.tone}}" data-seat="{{item.seat}}" bindtap="openRole" aria-label="标记 {{item.seat}} 号的身份判断">{{item.roleGuess === '未知' ? '＋' : item.roleGuess}}</view>
+      <textarea class="speech-entry" value="{{item.text}}" maxlength="300" auto-height="{{true}}" placeholder="发言记录" placeholder-class="note-placeholder" data-seat="{{item.seat}}" bindinput="speechInput" bindblur="saveAll"/>
+    </view>
+    <view class="notebook-list-end">按座位记录 · {{rows.length}} 位玩家</view>
+  </scroll-view>
+  <view class="notebook-records"><view class="record-title">▢ 记录</view><view class="record-fields"><textarea value="{{freeText}}" maxlength="1000" placeholder="自由记录" placeholder-class="note-placeholder" bindinput="freeInput" bindblur="saveAll" disabled="{{loading || !rows.length}}"/><textarea value="{{voteText}}" maxlength="1000" placeholder="投票记录" placeholder-class="note-placeholder" bindinput="voteInput" bindblur="saveAll" disabled="{{loading || !rows.length}}"/></view></view>
+  <view class="notebook-legend"><view><text class="legend-dot god"></text>神职</view><view><text class="legend-dot civilian"></text>村民 / 偏好</view><view><text class="legend-dot wolf"></text>狼人 / 偏狼</view></view>
+  <view wx:if="{{roleSheetOpen}}" class="role-sheet-mask" bindtap="closeRole"><view class="role-sheet" catchtap="noop"><view class="between"><view class="section-title">{{selectedSeat}} 号 · 身份判断</view><view class="sheet-close" bindtap="closeRole">×</view></view><view class="muted">支持多选，再点取消；未知清空判断</view><view class="remaining-guesses">待标记：狼 {{remaining.wolves}} · 神 {{remaining.gods}} · 好人 {{remaining.good}}</view><view class="count-hint">神职、特殊狼、特殊平民按身份去重；偏好、偏狼不扣减</view><view wx:if="{{remaining.excess}}" class="count-warning">已有标记超出房间名额，请检查判断</view><view class="role-guess-options"><view wx:for="{{roleOptions}}" wx:key="role" class="role-guess-chip {{item.tone}} {{item.selected ? 'chosen' : ''}}" data-role="{{item.role}}" bindtap="chooseRole">{{item.selected ? '✓ ' : ''}}{{item.role}}</view></view><button class="guess-done" bindtap="closeRole">完成</button></view></view>
+</view>

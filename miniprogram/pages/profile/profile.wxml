@@ -1,0 +1,2 @@
+<test-user-switch/>
+<view class="page profile-page safe-bottom"><view class="big-avatar">{{avatarText}}</view><view class="label">昵称</view><input class="input" maxlength="12" value="{{nickname}}" bindinput="nicknameInput"/><view class="label">性别</view><picker mode="selector" range="{{genders}}" value="{{genderIndex}}" bindchange="genderChange"><view class="input picker">{{genders[genderIndex]}}<text>⌄</text></view></picker><button class="primary save" bindtap="save">保存资料</button></view>

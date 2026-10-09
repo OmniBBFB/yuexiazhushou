@@ -1,0 +1,21 @@
+{
+  "name": "miniprogram-ts-quickstart",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "typecheck": "tsc --noEmit",
+    "backend:local": "node local-backend/server.js",
+    "backend:lan": "TT_LOCAL_HOST=0.0.0.0 node local-backend/server.js",
+    "backend:benchmark": "node scripts/benchmark-local-backend.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "miniprogram-api-typings": "^2.8.3-1",
+    "typescript": "5.9.3"
+  }
+}

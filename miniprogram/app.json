@@ -1,0 +1,25 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/create/create",
+    "pages/join/join",
+    "pages/room/room",
+    "pages/role/role",
+    "pages/game/game",
+    "pages/notes/notes",
+    "pages/relations/relations",
+    "pages/broadcast/broadcast",
+    "pages/profile/profile"
+  ],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "夜幕",
+    "navigationBarBackgroundColor": "#6860ed",
+    "backgroundColor": "#f4f3fa",
+    "backgroundTextStyle": "dark"
+  },
+  "usingComponents": { "test-user-switch": "/components/test-user-switch/test-user-switch" },
+  "style": "v2",
+  "componentFramework": "glass-easel",
+  "lazyCodeLoading": "requiredComponents"
+}

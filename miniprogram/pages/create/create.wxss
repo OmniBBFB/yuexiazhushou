@@ -1,0 +1,51 @@
+.form-page { padding-top: 24rpx; padding-bottom: calc(210rpx + env(safe-area-inset-bottom)); }
+.config-heading .title { font-size: 36rpx; margin-top: 0; }
+.config-tabs { display: flex; gap: 8rpx; margin-top: 22rpx; background: #eee8f5; padding: 6rpx; border-radius: 16rpx; }
+.config-tabs view { flex: 1; text-align: center; border-radius: 12rpx; padding: 14rpx 0; color: #84778e; font-size: 25rpx; }
+.config-tabs view.active { background: #fff; color: #6953c4; font-weight: 600; }
+.size-row { display: flex; align-items: center; justify-content: space-between; margin: 22rpx 2rpx; font-size: 25rpx; color: #71677f; }
+.size-pill { padding: 8rpx 16rpx; border-radius: 12rpx; background: #fff; color: #6954c6; font-weight: 600; }
+.size-pill text { margin-left: 10rpx; }
+.group-label { color: #8b7e98; font-size: 22rpx; margin: 18rpx 2rpx 12rpx; }
+.group-label text { margin-left: 6rpx; }
+.board-card { background: #fff; border: 2rpx solid transparent; border-radius: 18rpx; padding: 18rpx 22rpx; margin-bottom: 10rpx; }
+.board-card.selected { border-color: #a58ce7; }
+.board-name { font-size: 26rpx; font-weight: 600; color: #272332; }
+.board-right { display: flex; align-items: center; gap: 14rpx; }
+.board-size { color: #7760d2; font-size: 23rpx; }
+.board-check { color: #947ad9; width: 20rpx; text-align: center; }
+.board-summary { margin-top: 8rpx; color: #95879e; font-size: 21rpx; line-height: 1.5; }
+.board-role-summary { margin-left: 16rpx; color: #81718f; }
+.custom-entry { text-align: right; color: #755dcc; font-size: 23rpx; padding: 10rpx 4rpx 14rpx; }
+.roles-card { padding: 0 24rpx; border-radius: 20rpx; }
+.role-section { padding: 20rpx 0; border-bottom: 1rpx solid #eee8f3; }
+.role-section:last-child { border-bottom: 0; }
+.role-heading { min-height: 48rpx; font-size: 27rpx; font-weight: 600; }
+.role-number { color: #8f809d; font-size: 24rpx; font-weight: 400; }
+.role-options { display: flex; flex-wrap: wrap; gap: 10rpx; margin-top: 14rpx; }
+.role-option { box-sizing: border-box; padding: 12rpx 20rpx; min-height: 58rpx; display: flex; align-items: center; border-radius: 12rpx; color: #918599; background: #f5f2f9; border: 1rpx solid #e7e0ef; font-size: 24rpx; }
+.role-option.checked { color: #7950b4; background: #eee5f9; border-color: #bea1db; }
+.wolf-options .role-option.checked { color: #b64d65; background: #faedf0; border-color: #dba0b1; }
+.role-hint { color: #a195ac; font-size: 21rpx; line-height: 1.5; margin-top: 10rpx; }
+.stepper { display: flex; align-items: center; background: #faedf0; border-radius: 12rpx; }
+.stepper button { width: 58rpx; height: 54rpx; padding: 0; line-height: 54rpx; background: transparent; color: #b64d65; font-size: 28rpx; }
+.stepper text { min-width: 40rpx; text-align: center; font-size: 27rpx; color: #b64d65; }
+.stepper button[disabled] { color: #cfb4bd; }
+.wild-child-row { margin-top: 14rpx; gap: 12rpx; min-height: 56rpx; }
+.wild-child-row > view { flex: 1; min-width: 0; }
+.wild-child-row switch { flex-shrink: 0; }
+.wild-child-name { font-size: 25rpx; }
+.inline-hint { display: inline-block; margin: 0 0 0 14rpx; }
+.config-error { color: #bb4961; font-size: 23rpx; margin-top: 16rpx; }
+.settings-card { margin-top: 18rpx; padding: 20rpx 24rpx; border-radius: 20rpx; }
+.settings-row { gap: 16rpx; font-size: 25rpx; }
+.settings-card .label { display: flex; justify-content: space-between; font-size: 23rpx; margin-top: 20rpx; }
+.settings-card slider { margin: 12rpx 0; }
+.settings-card .input { margin-top: 10rpx; }
+.choices { display: flex; gap: 8rpx; }
+.choice { text-align: center; padding: 10rpx 22rpx; background: #f5f1fa; color: #94859f; border: 1rpx solid transparent; border-radius: 12rpx; font-size: 23rpx; }
+.choice.active { background: #ebe2fa; color: #7b53c1; border-color: #b99fda; }
+.optional { font-size: 20rpx; color: #a296af; }
+.placeholder { color: #a89eb0; }
+.create-footer { position: fixed; bottom: 0; left: 0; right: 0; background: #fff; border-top: 1rpx solid #e5deef; padding: 16rpx 30rpx calc(18rpx + env(safe-area-inset-bottom)); box-sizing: border-box; z-index: 10; }
+.selection-summary { text-align: center; color: #9b90a7; font-size: 22rpx; margin-bottom: 12rpx; }

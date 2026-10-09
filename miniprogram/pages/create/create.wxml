@@ -1,0 +1,37 @@
+<test-user-switch/>
+<view class="page form-page safe-bottom">
+  <view class="config-heading"><view><view class="title">{{custom ? '自定义阵容' : '选择板子'}}</view></view></view>
+  <view class="config-tabs"><view class="{{!custom ? 'active' : ''}}" data-mode="recommended" bindtap="pickConfigMode">推荐配置</view><view class="{{custom ? 'active' : ''}}" data-mode="custom" bindtap="pickConfigMode">自定义配置</view></view>
+  <view class="size-row"><text>现场人数</text><picker mode="selector" range="{{sizes}}" value="{{sizeIndex}}" bindchange="sizeChange"><view class="size-pill">{{total}} 人 <text>⌄</text></view></picker></view>
+  <block wx:if="{{!custom}}">
+    <view class="group-label">经典阵容 <text>· 可选后调整</text></view>
+    <view wx:for="{{boards}}" wx:key="total" class="board-card {{total === item.total ? 'selected' : ''}}" data-size="{{item.total}}" bindtap="pickSize">
+      <view class="between"><view class="board-name">{{item.name}}</view><view class="board-right"><text class="board-size">{{item.total}} 人</text><text class="board-check">{{total === item.total ? '✓' : '›'}}</text></view></view>
+      <view class="board-summary">狼 {{item.wolves}} · 神 {{item.gods}} · 平民 {{item.villagers}}<text class="board-role-summary">{{item.godRoles}}</text></view>
+    </view>
+    <view class="custom-entry" data-mode="custom" bindtap="pickConfigMode">调整角色 ›</view>
+  </block>
+  <view class="card roles-card">
+    <view class="role-section">
+      <view class="between role-heading"><text>狼人</text><view wx:if="{{custom}}" class="stepper"><button data-delta="-1" disabled="{{wolves <= 1}}" bindtap="changeWolves">−</button><text>{{wolves}}</text><button data-delta="1" disabled="{{wolves * 2 + 2 >= total || villagers <= 1}}" bindtap="changeWolves">＋</button></view><text wx:else class="role-number">{{wolves}} 人</text></view>
+      <view class="role-options wolf-options"><view wx:for="{{wolfOptions}}" wx:key="role" class="role-option {{item.checked ? 'checked' : ''}}" data-role="{{item.role}}" bindtap="toggleWolf">{{item.role}}</view></view>
+      <view class="role-hint">特殊狼人替换普通狼人，每种 1 人</view>
+    </view>
+    <view class="role-section">
+      <view class="between role-heading"><text>神职</text><text class="role-number">{{gods}} 人</text></view>
+      <view wx:if="{{custom}}" class="role-options"><view wx:for="{{godOptions}}" wx:key="role" class="role-option {{item.checked ? 'checked' : ''}}" data-role="{{item.role}}" bindtap="toggleGod">{{item.role}}</view></view>
+      <view wx:else class="role-options"><text wx:for="{{godRoles}}" wx:key="*this" class="role-option checked">{{item}}</text></view>
+    </view>
+    <view class="role-section civilian-section">
+      <view class="between role-heading"><text>村民</text><text class="role-number">{{villagers - (wildChild ? 1 : 0) < 0 ? 0 : villagers - (wildChild ? 1 : 0)}} 人</text></view>
+      <view class="between wild-child-row"><view><text class="wild-child-name">野孩子</text><text class="role-hint inline-hint">占 1 个平民名额</text></view><switch checked="{{wildChild}}" color="#7963dc" bindchange="toggleWildChild"/></view>
+    </view>
+  </view>
+  <view wx:if="{{configError}}" class="config-error">{{configError}}</view>
+  <view class="card settings-card">
+    <view class="between settings-row"><text>胜利方式</text><view class="choices"><view class="choice {{winMode === '屠边' ? 'active' : ''}}" data-mode="屠边" bindtap="pickMode">屠边</view><view class="choice {{winMode === '屠城' ? 'active' : ''}}" data-mode="屠城" bindtap="pickMode">屠城</view></view></view>
+    <view class="label">播报间隔 <text class="gold">{{interval}} 秒</text></view><slider min="1" max="6" value="{{interval}}" activeColor="#7963dc" backgroundColor="#e9e3f3" bindchange="intervalChange"/>
+    <view class="label">房间密码 <text class="optional">可选</text></view><input class="input" password maxlength="8" placeholder="留空则无需密码" placeholder-class="placeholder" bindinput="passwordInput"/>
+  </view>
+  <view class="create-footer"><view class="selection-summary">已选 {{total}} 人 · 狼 {{wolves}} / 神 {{gods}} / 村民 {{villagers - (wildChild ? 1 : 0) < 0 ? 0 : villagers - (wildChild ? 1 : 0)}}{{wildChild ? ' / 野孩子 1' : ''}}{{wolfRoles.length ? ' · 含' + wolfRoles : ''}}</view><button class="primary" disabled="{{submitting || configError}}" bindtap="submit">{{submitting ? '创建中…' : '创建房间'}}</button></view>
+</view>

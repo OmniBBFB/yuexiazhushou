@@ -1,0 +1,1 @@
+.join { padding-top: 70rpx; }.join-card { margin-top: 70rpx; }.code { height: 120rpx; font-size: 64rpx; font-weight: 700; letter-spacing: 18rpx; color: #6e55bc; border-bottom: 1rpx solid #ded5e9; }.placeholder { color: #454955; }.submit { margin-top: 50rpx; width: 100%; }.notice { color: #606470; font-size: 23rpx; line-height: 1.6; margin: 32rpx 16rpx; }

@@ -1,0 +1,1 @@
+.profile-page { padding-top: 70rpx; }.big-avatar { margin: 20rpx auto 70rpx; width: 150rpx; height: 150rpx; line-height: 150rpx; text-align: center; border-radius: 50%; background: #eee7fa; color: #7359ca; font-size: 54rpx; border: 1rpx solid #d6c9ec; }.picker { display: flex; align-items: center; justify-content: space-between; }.save { margin-top: 70rpx; }

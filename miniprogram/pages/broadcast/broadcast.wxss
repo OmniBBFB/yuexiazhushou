@@ -1,0 +1,6 @@
+.broadcast-settings { padding-top: calc(32rpx + env(safe-area-inset-top)); }
+.settings-head { display: flex; align-items: center; justify-content: space-between; gap: 20rpx; width: 100%; box-sizing: border-box; margin: 32rpx 0; }
+.settings-head .section-title { flex: 1; min-width: 0; margin: 0; font-size: 32rpx; }
+.settings-back { flex: 0 0 112rpx; width: 112rpx; box-sizing: border-box; margin: 0 0 0 auto; padding: 0 18rpx; min-width: 0; font-size: 25rpx; line-height: 64rpx; background: #eee9f9; color: #6c56c7; }
+.settings-player { font-size: 30rpx; font-weight: 600; margin-top: 16rpx; line-height: 1.6; }
+.settings-status { font-size: 24rpx; color: #8e839d; margin-top: 14rpx; }.settings-cue { margin-top: 24rpx; }

@@ -1,0 +1,5 @@
+:host { flex-shrink: 0; }
+.test-switch { display: flex; align-items: center; justify-content: space-between; gap: 16rpx; padding: 12rpx 24rpx; box-sizing: border-box; background: #eee8fb; border-bottom: 1rpx solid #ddd3ef; }
+.test-switch-label { flex: 1; min-width: 0; font-size: 22rpx; color: #7359ca; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.test-switch-button { width: 144rpx; margin: 0; padding: 0; height: 64rpx; line-height: 64rpx; border-radius: 18rpx; font-size: 24rpx; color: #7359ca; background: #fff; }
+.test-switch-button::after { border: 0; }

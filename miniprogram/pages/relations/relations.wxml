@@ -1,0 +1,14 @@
+<view class="relations-page">
+  <test-user-switch/>
+  <view class="toolbar"><text class="heading">关系图</text><button bindtap="back">返回</button></view>
+  <view class="status" bindtap="retry">{{status}}</view>
+  <view class="hint">{{loading ? '正在打开你的关系图…' : mode ? (source ? '再点目标座位；点原座位取消' : '先点发起者，再点目标座位') : '点座位查看关系 · 箭头表示发起者 → 目标'}}</view>
+  <view class="board">
+    <canvas id="relations" type="2d" class="lines"/>
+    <view wx:for="{{nodes}}" wx:key="seat" class="seat {{item.dead ? 'dead' : ''}} {{focus === item.seat ? 'focused' : ''}} {{source === item.seat ? 'source' : ''}}" style="left:{{item.x}}%;top:{{item.y}}%;" data-seat="{{item.seat}}" bindtap="tapSeat">{{item.seat}}</view>
+  </view>
+  <view class="tools"><button class="{{mode === '' ? 'active' : ''}}" data-mode="" bindtap="chooseMode">查看</button><button class="attack {{mode === 'ATTACK' ? 'active' : ''}}" data-mode="ATTACK" bindtap="chooseMode">踩 →</button><button class="support {{mode === 'SUPPORT' ? 'active' : ''}}" data-mode="SUPPORT" bindtap="chooseMode">站 →</button></view>
+  <view class="history-tools"><button disabled="{{!canUndo}}" bindtap="undo">撤销</button><button disabled="{{!canRedo}}" bindtap="redo">重做</button><button bindtap="clear">清空</button></view>
+  <view class="list-title">{{focus ? focus + ' 号的关系' : '全部关系'}} · {{related.length}} <text>点击连线记录可修改或删除</text></view>
+  <scroll-view scroll-y class="edge-list"><view wx:if="{{!related.length}}" class="empty">暂无连线</view><view wx:for="{{related}}" wx:key="key" class="edge {{item.type === 'ATTACK' ? 'attack' : 'support'}}" data-source="{{item.source}}" data-target="{{item.target}}" bindtap="editEdge">{{item.label}}<text>编辑 ›</text></view></scroll-view>
+</view>

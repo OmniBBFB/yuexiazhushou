@@ -1,0 +1,10 @@
+<test-user-switch/>
+<view class="page broadcast-settings safe-bottom">
+  <view class="settings-head"><view class="section-title">播报设置</view><button class="settings-back" bindtap="back">返回</button></view>
+  <view wx:if="{{loading}}" class="muted">正在加载…</view>
+  <block wx:elif="{{room}}">
+    <view class="card"><view class="muted">播报玩家</view><view class="settings-player">{{room.broadcast.nickname}}{{room.broadcast.userId === myId ? '（我）' : ''}}</view><view wx:if="{{room.broadcast.userId === myId}}" class="settings-status">{{playingHere ? '本机外放中' : (room.game ? '本机暂未播报' : '对局开始后由你播报')}}</view><button wx:if="{{isOwner}}" class="secondary flow-button" disabled="{{transferring}}" bindtap="transferBroadcast">切换播报玩家</button></view>
+    <view wx:if="{{room.broadcast.userId === myId && room.game}}" class="card settings-cue"><view class="muted">当前口令</view><view class="settings-player">{{announcementText || '当前没有播报口令'}}</view><button wx:if="{{announcementText}}" class="secondary flow-button" disabled="{{!playingHere}}" bindtap="replay">重播当前口令</button></view>
+  </block>
+  <button wx:else class="secondary flow-button" bindtap="retry">重新加载</button>
+</view>
